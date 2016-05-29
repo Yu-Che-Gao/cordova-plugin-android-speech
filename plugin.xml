@@ -1,1 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="cordova-plugin-android-speech"
+    version="1.0.0">
+    
+    <!--meta data-->
+    <name>cordova-plugin-android-speech</name>
+    <author>Yu-Che-Gao 高宇哲</author>
+    <description>cordova調用android語音辨識功能插件</description>
+    <liscense>Apache 2.0</liscense>
+    
+    
+    <!--js module-->
+    <js-module name="androidSpeech" src="androidSpeech.js">
+        <clobbers target="cordova.plugin.androidSpeech"/>
+    </js-module>
+    
+    <!--android-->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="androidSpeech">
+                <param name="android-package" value="com.gao.cordova.plugin.androidSpeech"/>
+            </feature>
+            <source-file src="src/android/androidSpeech.java" target-dir="src/com/gao/cordova/plugin/" />
+        </config-file>
+    </platform>
+</plugin>
