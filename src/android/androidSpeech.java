@@ -1,11 +1,11 @@
-package com.clk.cordova.sample;
+package com.gao.cordova.plugin;
 
 import org.apache.cordova.*;
 import org.json.*;
 import android.widget.Toast; 
 
 
-public class NotificationService extends CordovaPlugin {
+public class androidSpeech extends CordovaPlugin {
 	
 	// methods
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {

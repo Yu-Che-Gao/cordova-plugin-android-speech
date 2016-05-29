@@ -1,42 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="clk-cordova-sample"
+        id="gao-cordova-android-speech"
         version="1.0.0">
 
   <!-- metadata -->
-  <name>CLK Cordova Sample</name>
-  <description>CLK Cordova Sample的說明</description>
+  <name>cordova android speech</name>
+  <author>Yu-Che-Gao 高宇哲</author>
+  <description>cordova調用android語音辨識插件</description>
   <license>Apache 2.0</license>
-
-  <!-- javascript -->
-  <js-module name="NotificationService" src="www/clk.cordova.sample.NotificationService.js" >
-    <clobbers target="clk.cordova.sample.NotificationService" />
+  <js-module name="androidSpeech" src="www/android-speech.js" >
+    <clobbers target="cordova.plugins.androidSpeech" />
   </js-module>
 
   <!-- android -->
   <platform name="android">
     <!-- config -->
     <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="NotificationService">
-        <param name="android-package" value="com.clk.cordova.sample.NotificationService"/>
+      <feature name="androidSpeech">
+        <param name="android-package" value="com.gao.cordova.plugin.androidSpeech"/>
       </feature>
     </config-file>
     <!-- source -->
-    <source-file src="src/android/NotificationService.java" target-dir="src/com/clk/cordova/sample/NotificationService" />
+    <source-file src="src/android/androidSpeech.java" target-dir="src/com/gao/cordova/plugin/androidSpeech.java" />
   </platform>
-
-  <!-- ios -->
-  <platform name="ios">
-    <!-- config -->
-    <config-file target="config.xml" parent="/*">
-      <feature name="NotificationService">
-        <param name="ios-package" value="CLKNotificationService"/>
-      </feature>
-    </config-file>
-    <!-- source -->
-    <header-file src="src/ios/CLKNotificationService.h" />
-    <source-file src="src/ios/CLKNotificationService.m" />
-  </platform>
-
 </plugin>
