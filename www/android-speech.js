@@ -1,3 +1,3 @@
-exports.show = function (message) {
-    cordova.exec(success, error, "androidSpeech", "show", [message]);
+exports.show = function (success, error) {
+    cordova.exec(success, error, "androidSpeech", "show", []);
 };

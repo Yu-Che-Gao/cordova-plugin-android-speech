@@ -3,6 +3,9 @@ package com.gao.cordova.plugin;
 import org.apache.cordova.*;
 import org.json.*;
 import android.widget.Toast; 
+import android.speech.RecognizerIntent;
+import android.content.Intent;
+import java.util.*;
 
 public class androidSpeech extends CordovaPlugin {
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -18,22 +21,15 @@ public class androidSpeech extends CordovaPlugin {
 		return false;		
     }
     
-    public void returnResult(int code, String result) {
-        Intent returnIntent=new Intent();
-        returnIntent.putExtra("result", result);
-        setResult(code, returnIntent);
-        finish();
-    }
-    
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) { //TODO 尚未完成結果界接
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         switch(requestCode) {
-            case 0:
+            case 1:
                 if(resultCode == android.app.Activity.RESULT_OK) {
-                    String result=intent.getStringExtra("result");
+                    ArrayList<String> resultList = intent.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS); 
+                    String result=resultList.get(0);
                     this.callbackContext.success(result);
                 } else {
-                    String message=intent.getStringExtra("result");
-                    this.callbackContext.error(message);
+                    this.callbackContext.error("語音辨識失敗");
                 }
                 break;
             default:
