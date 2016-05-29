@@ -1,3 +1,4 @@
-exports.startSpeech=function(message) {
-    cordova.exec(null, null, 'androidSpeech', 'startSpeech', [message]);
+// methods
+exports.show = function (message) {
+    cordova.exec(null, null, "NotificationService", "show", [message]);
 };
