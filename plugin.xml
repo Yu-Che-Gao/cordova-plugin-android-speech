@@ -5,7 +5,7 @@
         version="1.0.0">
 
   <!-- metadata -->
-  <name>cordova android speech</name>
+  <name>cordova-android-speech</name>
   <author>Yu-Che-Gao 高宇哲</author>
   <description>cordova調用android語音辨識插件</description>
   <license>Apache 2.0</license>
