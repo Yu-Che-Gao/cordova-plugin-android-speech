@@ -18,7 +18,7 @@ public class androidSpeech extends CordovaPlugin {
               this.cordova.startActivityForResult(this, intent, 1);
             return true;
 		}
-		return false;		
+		return false;
     }
     
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
