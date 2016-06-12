@@ -27,9 +27,10 @@ public class androidSpeech extends CordovaPlugin {
                 if(resultCode == android.app.Activity.RESULT_OK) {
                     ArrayList<String> resultList = intent.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS); 
                     String result=resultList.get(0);
-                    this.callbackContext.success(result);
-                } else {
-                    this.callbackContext.error("語音辨識失敗");
+                    PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, result);
+                    pluginResult.setKeepCallback(true);
+                    PUBLIC_CALLBACKS.sendPluginResult(pluginResult);
+                    // this.callbackContext.success(result);
                 }
                 break;
             default:
